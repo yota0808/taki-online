@@ -1,0 +1,15 @@
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\bin\Debug\net9.0\MainProject.exe
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\bin\Debug\net9.0\MainProject.deps.json
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\bin\Debug\net9.0\MainProject.runtimeconfig.json
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\bin\Debug\net9.0\MainProject.dll
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\bin\Debug\net9.0\MainProject.pdb
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\obj\Debug\net9.0\MainProject.GeneratedMSBuildEditorConfig.editorconfig
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\obj\Debug\net9.0\MainProject.AssemblyInfoInputs.cache
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\obj\Debug\net9.0\MainProject.AssemblyInfo.cs
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\obj\Debug\net9.0\MainProject.csproj.CoreCompileInputs.cache
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\obj\Debug\net9.0\MainProject.sourcelink.json
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\obj\Debug\net9.0\MainProject.dll
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\obj\Debug\net9.0\refint\MainProject.dll
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\obj\Debug\net9.0\MainProject.pdb
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\obj\Debug\net9.0\MainProject.genruntimeconfig.cache
+D:\user\Documents\GitHub\taki-online\src\TakiServer\MainProject\obj\Debug\net9.0\ref\MainProject.dll
