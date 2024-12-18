@@ -1,7 +1,10 @@
 ﻿namespace ConsoleTest {
 	internal class Program {
 		static void Main(string[] args) {
-			new Person("Bob");
+			TakiCard[] deck = TakiConstants.StandardDeck();
+
+			Console.Write("End of program");
+			Console.ReadKey();
 		}
 	}
 

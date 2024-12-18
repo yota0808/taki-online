@@ -10,6 +10,6 @@ namespace ConsoleTest {
 		public TakiException(string msg) : base(msg) { }
 		public TakiException(string msg, Exception inner) : base(msg, inner) { }
 
-		public class InvalidMoveException
+		//public class InvalidMoveException
 	}
 }
