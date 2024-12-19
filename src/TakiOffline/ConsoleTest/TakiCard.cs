@@ -10,42 +10,34 @@ namespace ConsoleTest {
 			Red, Green, Blue, Yellow
 		}
 
-		public enum CardNumber {
-			N1, N2, N3, N4, N5, N6, N7, N8, N9
+		public enum ColorCardFigure {
+			//Numbers
+			N1, N2, N3, N4, N5, N6, N7, N8, N9,
+			//Color action cards
+			ChangeDirection, Stop, Plus, Taki, Plus2,			
 		}
 
-		public enum ColorActionCardFigure {
-			ChangeDirection, Stop, Plus, Taki, Plus2
-		}
-
-		public enum NeutralActionCardFigure {
+		public enum NeutralCardFigure {
 			King, SuperTaki, ChangeColor
 		}
 
 		public abstract record ColorCard : TakiCard {
 			public required CardColor Color { get; init; }
-
-			public record NumberCard : ColorCard {
-				public required CardNumber Number { get; init; }
-			}
-
-			public record ColorActionCard : ColorCard {
-				public required ColorActionCardFigure CardFigure { get; init; }
-			}
+			public required ColorCardFigure Figure { get; init; }
 		}
 
-		public record NeutralActionCard : TakiCard {
-			public required NeutralActionCardFigure CardFigure { get; init; }
+		public record NeutralCard : TakiCard {
+			public required NeutralCardFigure CardFigure { get; init; }
 		}
 
 		public bool IsPlayableOn(TakiCard other) {
 			//Kings are always playable and can always be played on
 
-			if(this is NeutralActionCard c && c.CardFigure == NeutralActionCardFigure.King) {
+			if(this is NeutralCard c && c.CardFigure == NeutralCardFigure.King) {
 				return true;
 			}
 			
-			if (other is NeutralActionCard otherC && otherC.CardFigure == NeutralActionCardFigure.King) {
+			if (other is NeutralCard otherC && otherC.CardFigure == NeutralCardFigure.King) {
 				return true;
 			}
 
@@ -71,7 +63,7 @@ namespace ConsoleTest {
 				}
 			}
 
-			if (this is TakiCard.NeutralActionCard thisNAC && other is TakiCard.NeutralActionCard otherNAC) {
+			if (this is TakiCard.NeutralCard thisNAC && other is TakiCard.NeutralCard otherNAC) {
 				if(thisNAC.CardFigure == otherNAC.CardFigure) {
 					return true;
 				}

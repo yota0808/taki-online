@@ -33,19 +33,19 @@ namespace ConsoleTest {
 				}
 			}
 
-			NeutralActionCardFigure[] neutralActionCardTypes = [NeutralActionCardFigure.King, NeutralActionCardFigure.SuperTaki];
+			NeutralCardFigure[] neutralActionCardTypes = [NeutralCardFigure.King, NeutralCardFigure.SuperTaki];
 
-			foreach(NeutralActionCardFigure type in neutralActionCardTypes) {
+			foreach(NeutralCardFigure type in neutralActionCardTypes) {
 				for (int i = 1; i <= 2; i++) {
-					cards.Add(new NeutralActionCard {
+					cards.Add(new NeutralCard {
 						CardFigure = type
 					});
 				}
 			}
 
 			for (int i = 1; i <= 4; i++) {
-				cards.Add(new NeutralActionCard {
-					CardFigure = NeutralActionCardFigure.ChangeColor
+				cards.Add(new NeutralCard {
+					CardFigure = NeutralCardFigure.ChangeColor
 				});
 			}
 
