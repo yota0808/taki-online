@@ -1,10 +1,10 @@
-﻿using System.Drawing;
+﻿using static ConsoleTest.Utilities;
 using static ConsoleTest.TakiCard;
 
 namespace ConsoleTest {
 	public static class TakiConstants {
-		public static TakiCard[] StandardDeck() {
-			List<TakiCard> deck = [];
+		public static TakiCard[] StandardDecklist() {
+			List<TakiCard> cards = [];
 
 			CardColor[] cardColors = Enum.GetValues<CardColor>();
 			CardNumber[] cardNumbers = Enum.GetValues<CardNumber>();
@@ -12,7 +12,7 @@ namespace ConsoleTest {
 			foreach(CardNumber number in cardNumbers) {
 				foreach(CardColor color in cardColors) {
 					for(int i = 1; i <= 2; i++) {
-						deck.Add(new ColorCard.NumberCard {
+						cards.Add(new ColorCard.NumberCard {
 							Color = color,
 							Number = number
 						});
@@ -25,7 +25,7 @@ namespace ConsoleTest {
 			foreach(ColorActionCardType type in colorActionCardTypes) {
 				foreach (CardColor color in cardColors) {
 					for (int i = 1; i <= 2; i++) {
-						deck.Add(new ColorCard.ColorActionCard {
+						cards.Add(new ColorCard.ColorActionCard {
 							CardType = type,
 							Color = color
 						});
@@ -37,21 +37,19 @@ namespace ConsoleTest {
 
 			foreach(NeutralActionCardType type in neutralActionCardTypes) {
 				for (int i = 1; i <= 2; i++) {
-					deck.Add(new NeutralActionCard {
+					cards.Add(new NeutralActionCard {
 						CardType = type
 					});
 				}
 			}
 
 			for (int i = 1; i <= 4; i++) {
-				deck.Add(new NeutralActionCard {
+				cards.Add(new NeutralActionCard {
 					CardType = NeutralActionCardType.ChangeColor
 				});
 			}
 
-			return deck.ToArray();
-
-			//TODO : use the Fisher-Yates algorithm to shuffle this
+			return cards.ToArray();
 		}
 	}
 }
