@@ -30,16 +30,20 @@ namespace ConsoleTest {
 			public required NeutralCardFigure CardFigure { get; init; }
 		}
 
-		public bool IsPlayableOn(TakiCard other) {
+		public bool IsValidPlayOn(TakiCard other) {
 			//Kings are always playable and can always be played on
+			//Change color is always playable (EXCEPT if you have extra draws, which is covered in TakiGame)
 
-			if(this is NeutralCard c && c.CardFigure == NeutralCardFigure.King) {
-				return true;
+			if(this is NeutralCard nC) {
+				if(nC.CardFigure == NeutralCardFigure.King || nC.CardFigure == NeutralCardFigure.ChangeColor) {
+					return true;
+				}
 			}
 			
-			if (other is NeutralCard otherC && otherC.CardFigure == NeutralCardFigure.King) {
+			if (other is NeutralCard otherNC && otherNC.CardFigure == NeutralCardFigure.King) {
 				return true;
 			}
+
 
 			//If there are colors to match...
 
@@ -47,26 +51,18 @@ namespace ConsoleTest {
 				if(thisCC.Color == otherCC.Color) {
 					return true;
 				}
-			}
 
-			//If there are figures to match...
-
-			if (this is ColorCard.ColorActionCard thisCAC && other is ColorCard.ColorActionCard otherCAC) {
-				if (thisCAC.CardFigure == otherCAC.CardFigure) {
+				//If figures match... (color card)
+				if(thisCC.Figure == otherCC.Figure) {
 					return true;
 				}
 			}
 
-			if (this is ColorCard.ColorActionCard thisCAC && other is ColorCard.ColorActionCard otherCAC) {
-				if(thisCAC.CardFigure == otherCAC.CardFigure) {
-					return true;
-				}
-			}
-
-			if (this is TakiCard.NeutralCard thisNAC && other is TakiCard.NeutralCard otherNAC) {
-				if(thisNAC.CardFigure == otherNAC.CardFigure) {
-					return true;
-				}
+			//If there are figures to match... (neutral card)
+			nC = this as NeutralCard;
+			otherNC = other as NeutralCard;
+			if (nC.CardFigure == otherNC.CardFigure) {
+				return true;
 			}
 
 			//If nothing matches...

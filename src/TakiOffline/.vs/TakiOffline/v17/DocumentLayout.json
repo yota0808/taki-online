@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takicard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takicard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takiconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takiconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takigame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takigame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takicard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takicard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takimove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,10 +39,6 @@
       "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takiconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takiconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2908DD43-6011-4E34-B61F-5591309953B2}|MainProject\\MainProject.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\mainproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2908DD43-6011-4E34-B61F-5591309953B2}|MainProject\\MainProject.csproj|solutionrelative:mainproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "CardDeck.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\CardDeck.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\CardDeck.cs",
@@ -78,7 +78,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Utilities.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\Utilities.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\Utilities.cs",
@@ -90,20 +90,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "TakiConstants.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiConstants.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\TakiConstants.cs",
               "ToolTip": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiConstants.cs",
               "RelativeToolTip": "ConsoleTest\\TakiConstants.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwCcAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAACSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-18T16:42:34.028Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "TakiPlayer.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiPlayer.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\TakiPlayer.cs",
@@ -126,7 +126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "TakiException.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiException.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\TakiException.cs",
@@ -138,20 +138,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "TakiCard.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiCard.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\TakiCard.cs",
               "ToolTip": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiCard.cs",
               "RelativeToolTip": "ConsoleTest\\TakiCard.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-17T17:50:26.294Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TakiMove.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiMove.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\TakiMove.cs",
@@ -159,8 +159,7 @@
               "RelativeToolTip": "ConsoleTest\\TakiMove.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T17:20:26.751Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T17:20:26.751Z"
             },
             {
               "$type": "Document",
@@ -170,13 +169,14 @@
               "RelativeDocumentMoniker": "ConsoleTest\\TakiGame.cs",
               "ToolTip": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiGame.cs",
               "RelativeToolTip": "ConsoleTest\\TakiGame.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAcwFYAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T16:53:46.219Z"
+              "WhenOpened": "2024-12-17T16:53:46.219Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\Program.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\Program.cs",

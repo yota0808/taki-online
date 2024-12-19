@@ -84,10 +84,8 @@ namespace ConsoleTest {
 			}
 		}
 
-		private void
-
 		private void HandlePlaySimpleCard(TakiCard card) {
-			if (!card.IsPlayableOn(_leadingCard)) {
+			if (!card.IsValidPlayOn(_leadingCard)) {
 				throw new TakiException.InvalidTakiMoveException
 					($"The card isn't playable on the leading card.");
 			}
