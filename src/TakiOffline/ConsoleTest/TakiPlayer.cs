@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ConsoleTest {
 	public class TakiPlayer {
 		public readonly List<TakiCard> Hand;
-		public required int PlayerID { get; init; }
+		public required int PlayerIndex { get; init; }
 		public bool HasWon { get; private set; }
 
 		public TakiPlayer() {
@@ -21,7 +21,11 @@ namespace ConsoleTest {
 		}
 
 		public void GiveCard(TakiCard card) {
-			Hand.
+			Hand.Add(card);
+		}
+
+		public void TakeCard(TakiCard card) {
+			Hand.Remove(card);
 		}
 	}
 }

@@ -32,8 +32,6 @@ namespace ConsoleTest {
 			}
 
 			public record ColorActionCard : ColorCard {
-				
-
 				public required ColorActionCardType CardType { get; init; }
 			}
 		}

@@ -3,40 +3,40 @@
   "WorkspaceRootPath": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takigame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takigame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\carddeck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\carddeck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takicard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takicard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takiconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takiconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takimove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takimove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\carddeck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\carddeck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takiexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takiexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takicard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takicard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\consoletest\\takiconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{320985F0-0618-43A4-8475-C648462D3979}|ConsoleTest\\ConsoleTest.csproj|solutionrelative:consoletest\\takiconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2908DD43-6011-4E34-B61F-5591309953B2}|MainProject\\MainProject.csproj|d:\\user\\documents\\github\\taki-online\\src\\takioffline\\mainproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -72,14 +72,14 @@
               "RelativeDocumentMoniker": "ConsoleTest\\CardDeck.cs",
               "ToolTip": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\CardDeck.cs",
               "RelativeToolTip": "ConsoleTest\\CardDeck.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-19T07:38:26.042Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Utilities.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\Utilities.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\Utilities.cs",
@@ -87,12 +87,11 @@
               "RelativeToolTip": "ConsoleTest\\Utilities.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T07:23:54.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-19T07:23:54.544Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "TakiConstants.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiConstants.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\TakiConstants.cs",
@@ -100,18 +99,17 @@
               "RelativeToolTip": "ConsoleTest\\TakiConstants.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwCcAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T16:42:34.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-18T16:42:34.028Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "TakiPlayer.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiPlayer.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\TakiPlayer.cs",
               "ToolTip": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiPlayer.cs",
               "RelativeToolTip": "ConsoleTest\\TakiPlayer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-18T16:14:54.669Z",
               "EditorCaption": ""
@@ -129,63 +127,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "TakiException.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiException.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\TakiException.cs",
               "ToolTip": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiException.cs",
               "RelativeToolTip": "ConsoleTest\\TakiException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T15:22:23.933Z"
+              "WhenOpened": "2024-12-18T15:22:23.933Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "TakiCard.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiCard.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\TakiCard.cs",
               "ToolTip": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiCard.cs",
               "RelativeToolTip": "ConsoleTest\\TakiCard.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACEAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-17T17:50:26.294Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "TakiMove.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiMove.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\TakiMove.cs",
               "ToolTip": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiMove.cs",
               "RelativeToolTip": "ConsoleTest\\TakiMove.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T17:20:26.751Z"
+              "WhenOpened": "2024-12-17T17:20:26.751Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "TakiGame.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiGame.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\TakiGame.cs",
               "ToolTip": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\TakiGame.cs",
               "RelativeToolTip": "ConsoleTest\\TakiGame.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAgwE0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-17T16:53:46.219Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\Program.cs",
               "RelativeDocumentMoniker": "ConsoleTest\\Program.cs",
               "ToolTip": "D:\\user\\Documents\\GitHub\\taki-online\\src\\TakiOffline\\ConsoleTest\\Program.cs",
               "RelativeToolTip": "ConsoleTest\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-17T16:51:46.061Z",
               "EditorCaption": ""

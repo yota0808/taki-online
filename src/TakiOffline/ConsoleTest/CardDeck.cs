@@ -23,6 +23,10 @@ namespace ConsoleTest {
 			return topCard;
 		}
 
+		public T Peek() {
+			return Cards.Last();
+		}
+
 		public void Shuffle() {
 			Cards.FisherYatesShuffle();
 		}

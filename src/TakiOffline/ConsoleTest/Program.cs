@@ -1,7 +1,7 @@
 ﻿namespace ConsoleTest {
 	internal class Program {
 		static void Main(string[] args) {
-			TakiCard[] deck = TakiConstants.StandardDecklist();
+			TakiGame game = new TakiGame(5);
 
 			Console.Write("End of program");
 			Console.ReadKey();

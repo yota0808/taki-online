@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleTest {
 	public abstract record TakiMove {
-		public required int Player { get; init; }
+		public required int PlayerIndex { get; init; }
 		
 		public record DrawCard : TakiMove {}
 		
@@ -38,6 +38,7 @@ namespace ConsoleTest {
 			}
 		}
 
-		public record SayClosedTaki : TakiMove { }
+		//Implement later
+		//public record SayClosedTaki : TakiMove { }
 	}
 }
