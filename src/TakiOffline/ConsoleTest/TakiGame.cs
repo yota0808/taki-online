@@ -18,7 +18,7 @@ namespace ConsoleTest {
 		private CardDeck<TakiCard> _drawPile;
 		private List<TakiCard> _discardPile;
 
-		private TakiCard LeadingCard => _discardPile.Last();
+		private TakiCard _leadingCard => _discardPile.Last();
 		private TakiPlayer _currentPlayer => _players[_currentPlayerIndex];
 
 		private TakiPlayer[] _players;
@@ -61,24 +61,34 @@ namespace ConsoleTest {
 
 			switch (move) {
 				case TakiMove.DrawCard:
-					if (_extraDraws > 0) {
-						_extraDraws--;
-					}
-					else _currentPlayer.GiveCard(_drawPile.Draw());
-					if(_drawPile.Cards.Count == 0) {
-						_drawPile = new CardDeck<TakiCard>(_discardPile);
-						_discardPile.Clear();
-						_drawPile.Shuffle();
-					}
+					HandleDraw();
 					break;
-				case TakiMove.PlayCard playCard:
-					switch (playCard) {
-						case TakiMove.PlayCard.PlaySimpleCard pSC:
-							TakiCard card = pSC.GetCard();
-
-					}
+				case TakiMove.PlayCard.PlaySimpleCard pSC:
+					HandlePlaySimpleCard(pSC);
 					break;
 			}
 		}
+
+		private void HandleDraw() {
+			if (_extraDraws > 0) {
+				_extraDraws--;
+			}
+			else _currentPlayer.GiveCard(_drawPile.Draw());
+			if (_drawPile.Cards.Count == 0) {
+				_drawPile = new CardDeck<TakiCard>(_discardPile);
+				_discardPile.Clear();
+				_drawPile.Shuffle();
+			}
+		}
+
+		private void HandlePlaySimpleCard(TakiMove.PlayCard.PlaySimpleCard pSC) {
+			TakiCard card = pSC.GetCard();
+			switch (card) {
+				case TakiCard.ColorCard.NumberCard nC:
+
+			}
+		}
+
+		private void HandlePlayNumberCard()
 	}
 }

@@ -26,8 +26,6 @@ namespace ConsoleTest {
 			public required CardColor Color { get; init; }
 
 			public record NumberCard : ColorCard {
-				
-
 				public required CardNumber Number { get; init; }
 			}
 
