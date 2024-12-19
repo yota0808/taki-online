@@ -15,6 +15,9 @@ namespace ConsoleTest {
 
 		private DirectionOfPlayType _directionOfPlay;
 
+		//In case of super taki or change color.
+		private TakiCard.CardColor? _colorOverride = null;
+
 		private CardDeck<TakiCard> _drawPile;
 		private List<TakiCard> _discardPile;
 
@@ -64,7 +67,7 @@ namespace ConsoleTest {
 					HandleDraw();
 					break;
 				case TakiMove.PlayCard.PlaySimpleCard pSC:
-					HandlePlaySimpleCard(pSC);
+					HandlePlaySimpleCard(pSC.GetCard());
 					break;
 			}
 		}
@@ -81,14 +84,17 @@ namespace ConsoleTest {
 			}
 		}
 
-		private void HandlePlaySimpleCard(TakiMove.PlayCard.PlaySimpleCard pSC) {
-			TakiCard card = pSC.GetCard();
+		private void
+
+		private void HandlePlaySimpleCard(TakiCard card) {
+			if (!card.IsPlayableOn(_leadingCard)) {
+				throw new TakiException.InvalidTakiMoveException
+					($"The card isn't playable on the leading card.");
+			}
+
 			switch (card) {
 				case TakiCard.ColorCard.NumberCard nC:
-
 			}
 		}
-
-		private void HandlePlayNumberCard()
 	}
 }

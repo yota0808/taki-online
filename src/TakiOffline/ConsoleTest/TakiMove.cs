@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleTest {
+﻿namespace ConsoleTest {
 	public abstract record TakiMove {
 		public required int PlayerIndex { get; init; }
 		
@@ -17,7 +11,7 @@ namespace ConsoleTest {
 				private TakiCard _card;
 				public required TakiCard Card {
 					init {
-						if(value is TakiCard.NeutralActionCard nAC && nAC.CardType == TakiCard.NeutralActionCard.NeutralActionCardType.ChangeColor) {
+						if(value is TakiCard.NeutralActionCard nAC && nAC.CardFigure == TakiCard.NeutralActionCard.NeutralActionCardFigure.ChangeColor) {
 							throw new ArgumentException("The 'Change color' card must have the selected color as an argument.");
 						}
 						else {
@@ -31,7 +25,7 @@ namespace ConsoleTest {
 
 			public record PlayChangeColor : PlayCard {
 				public override TakiCard GetCard() {
-					return new TakiCard.NeutralActionCard() { CardType = TakiCard.NeutralActionCard.NeutralActionCardType.ChangeColor };
+					return new TakiCard.NeutralActionCard() { CardFigure = TakiCard.NeutralActionCard.NeutralActionCardFigure.ChangeColor };
 				}
 
 				public required TakiCard.ColorCard.CardColor SelectedColor { get; init; }

@@ -20,32 +20,32 @@ namespace ConsoleTest {
 				}
 			}
 
-			ColorActionCardType[] colorActionCardTypes = [ColorActionCardType.ChangeDirection, ColorActionCardType.Stop, ColorActionCardType.Plus, ColorActionCardType.Taki];
+			ColorActionCardFigure[] colorActionCardTypes = [ColorActionCardFigure.ChangeDirection, ColorActionCardFigure.Stop, ColorActionCardFigure.Plus, ColorActionCardFigure.Taki];
 			
-			foreach(ColorActionCardType type in colorActionCardTypes) {
+			foreach(ColorActionCardFigure type in colorActionCardTypes) {
 				foreach (CardColor color in cardColors) {
 					for (int i = 1; i <= 2; i++) {
 						cards.Add(new ColorCard.ColorActionCard {
-							CardType = type,
+							CardFigure = type,
 							Color = color
 						});
 					}
 				}
 			}
 
-			NeutralActionCardType[] neutralActionCardTypes = [NeutralActionCardType.King, NeutralActionCardType.SuperTaki];
+			NeutralActionCardFigure[] neutralActionCardTypes = [NeutralActionCardFigure.King, NeutralActionCardFigure.SuperTaki];
 
-			foreach(NeutralActionCardType type in neutralActionCardTypes) {
+			foreach(NeutralActionCardFigure type in neutralActionCardTypes) {
 				for (int i = 1; i <= 2; i++) {
 					cards.Add(new NeutralActionCard {
-						CardType = type
+						CardFigure = type
 					});
 				}
 			}
 
 			for (int i = 1; i <= 4; i++) {
 				cards.Add(new NeutralActionCard {
-					CardType = NeutralActionCardType.ChangeColor
+					CardFigure = NeutralActionCardFigure.ChangeColor
 				});
 			}
 
