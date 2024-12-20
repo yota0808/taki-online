@@ -6,42 +6,31 @@ namespace ConsoleTest {
 		public static TakiCard[] StandardDecklist() {
 			List<TakiCard> cards = [];
 
-			CardColor[] cardColors = Enum.GetValues<CardColor>();
-			CardNumber[] cardNumbers = Enum.GetValues<CardNumber>();
+			//2 of each color of each color card
 
-			foreach(CardNumber number in cardNumbers) {
+			CardColor[] cardColors = Enum.GetValues<CardColor>();
+			ColorCardFigure[] colorCardFigures = Enum.GetValues<ColorCardFigure>();
+
+			foreach(ColorCardFigure figure in colorCardFigures) {
 				foreach(CardColor color in cardColors) {
 					for(int i = 1; i <= 2; i++) {
-						cards.Add(new ColorCard.NumberCard {
+						cards.Add(new ColorCard {
 							Color = color,
-							Number = number
+							Figure = figure
 						});
 					}
 				}
 			}
 
-			ColorActionCardFigure[] colorActionCardTypes = [ColorActionCardFigure.ChangeDirection, ColorActionCardFigure.Stop, ColorActionCardFigure.Plus, ColorActionCardFigure.Taki];
-			
-			foreach(ColorActionCardFigure type in colorActionCardTypes) {
-				foreach (CardColor color in cardColors) {
-					for (int i = 1; i <= 2; i++) {
-						cards.Add(new ColorCard.ColorActionCard {
-							CardFigure = type,
-							Color = color
-						});
-					}
+			//2 kings and super takis
+
+			foreach(NeutralCardFigure figure in new NeutralCardFigure[] {NeutralCardFigure.King, NeutralCardFigure.SuperTaki } ) {
+				for(int i = 1; i <= 2; i++) {
+					cards.Add(new NeutralCard { CardFigure = figure });
 				}
 			}
 
-			NeutralCardFigure[] neutralActionCardTypes = [NeutralCardFigure.King, NeutralCardFigure.SuperTaki];
-
-			foreach(NeutralCardFigure type in neutralActionCardTypes) {
-				for (int i = 1; i <= 2; i++) {
-					cards.Add(new NeutralCard {
-						CardFigure = type
-					});
-				}
-			}
+			//4 "change color"s
 
 			for (int i = 1; i <= 4; i++) {
 				cards.Add(new NeutralCard {

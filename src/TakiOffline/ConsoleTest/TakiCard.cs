@@ -21,9 +21,16 @@ namespace ConsoleTest {
 			King, SuperTaki, ChangeColor
 		}
 
-		public abstract record ColorCard : TakiCard {
+		public record ColorCard : TakiCard {
 			public required CardColor Color { get; init; }
 			public required ColorCardFigure Figure { get; init; }
+
+			public bool IsNormalNumber() {
+				ColorCardFigure[] numberFigures =
+					{ColorCardFigure.N1, ColorCardFigure.N2, ColorCardFigure.N3, ColorCardFigure.N4, ColorCardFigure.N5, ColorCardFigure.N6, ColorCardFigure.N7,
+					ColorCardFigure.N8, ColorCardFigure.N9};
+				return numberFigures.Contains(Figure);
+			}
 		}
 
 		public record NeutralCard : TakiCard {

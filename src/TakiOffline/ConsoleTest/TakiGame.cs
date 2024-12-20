@@ -13,7 +13,8 @@ namespace ConsoleTest {
 			Normal, Reverse
 		}
 
-		private DirectionOfPlayType _directionOfPlay;
+		private bool _reverseTurnOrder = false;
+		private bool _nextPlayerIsStopped = false;
 
 		//In case of super taki or change color.
 		private TakiCard.CardColor? _colorOverride = null;
@@ -45,15 +46,30 @@ namespace ConsoleTest {
 			_discardPile.Add(_drawPile.Draw());
 		}
 
-		public void NextPlayer() {
+		private void NextPlayer() {
 			int i = _currentPlayerIndex;
-			do {
-				if (i == _players.Length - 1) { i = 1; }
-				else i++;
+
+			if (_reverseTurnOrder) {
+				do {
+					if (i == 0) { i = _players.Length - 1; }
+					else i--;
+				}
+				while (_players[i].HasWon == false);
 			}
-			while (_players[i].HasWon == false);
+			else {
+				do {
+					if (i == _players.Length - 1) { i = 0; }
+					else i++;
+				}
+				while (_players[i].HasWon == false);
+			}
 
 			_currentPlayerIndex = i;
+
+			if (_nextPlayerIsStopped) {
+				_nextPlayerIsStopped = false;
+				NextPlayer();
+			}
 		}
 
 		public void MakeMove(TakiMove move) {
@@ -64,15 +80,15 @@ namespace ConsoleTest {
 
 			switch (move) {
 				case TakiMove.DrawCard:
-					HandleDraw();
+					Draw();
 					break;
-				case TakiMove.PlayCard.PlaySimpleCard pSC:
-					HandlePlaySimpleCard(pSC.GetCard());
+				case TakiMove.PlayCard.PlayCardNoParamaters pSC:
+					PlaySimpleCard(pSC.GetCard());
 					break;
 			}
 		}
 
-		private void HandleDraw() {
+		private void Draw() {
 			if (_extraDraws > 0) {
 				_extraDraws--;
 			}
@@ -84,14 +100,28 @@ namespace ConsoleTest {
 			}
 		}
 
-		private void HandlePlaySimpleCard(TakiCard card) {
+		private void PlaySimpleCard(TakiCard card) {
 			if (!card.IsValidPlayOn(_leadingCard)) {
-				throw new TakiException.InvalidTakiMoveException
+				throw new InvalidTakiMoveException
 					($"The card isn't playable on the leading card.");
 			}
+			
+			if(card is TakiCard.ColorCard cC) {
+				//Numbers (which aren't plus 2) don't do anything special
+				if (cC.IsNormalNumber()) {
+					return;
+				}
 
-			switch (card) {
-				case TakiCard.ColorCard.NumberCard nC:
+				switch (cC.Figure) {
+					case TakiCard.ColorCardFigure.ChangeDirection:
+						_reverseTurnOrder = !_reverseTurnOrder;
+						break;
+					case TakiCard.ColorCardFigure.Stop:
+						_nextPlayerIsStopped = true;
+						break;
+					case TakiCard.ColorCardFigure.Plus:
+
+				}
 			}
 		}
 	}

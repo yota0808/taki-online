@@ -7,7 +7,7 @@
 		public abstract record PlayCard : TakiMove {
 			public abstract TakiCard GetCard();
 
-			public record PlaySimpleCard : PlayCard {
+			public record PlayCardNoParamaters : PlayCard {
 				private TakiCard _card;
 				public required TakiCard Card {
 					init {
@@ -28,7 +28,7 @@
 					return new TakiCard.NeutralCard() { CardFigure = TakiCard.NeutralCard.NeutralCardFigure.ChangeColor };
 				}
 
-				public required TakiCard.ColorCard.CardColor SelectedColor { get; init; }
+				public required TakiCard.CardColor SelectedColor { get; init; }
 			}
 		}
 
