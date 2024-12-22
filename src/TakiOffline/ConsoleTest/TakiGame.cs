@@ -1,6 +1,7 @@
 ﻿using static ConsoleTest.TakiException;
 using static ConsoleTest.TakiCard;
 using static ConsoleTest.TakiCard.ColorCard;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ConsoleTest {
 	public class TakiGame {
@@ -61,6 +62,10 @@ namespace ConsoleTest {
 			}
 		}
 
+		private void ThrowInvalidCardPlay() {
+			throw new InvalidTakiMoveException("That card can't be played right now.");
+		}
+
 		private void NextPlayer() {
 			int i = _currentPlayerIndex;
 
@@ -117,8 +122,61 @@ namespace ConsoleTest {
 
 		public void PlayCardNoParams(int actingPlayer, TakiCard card) {
 			ThrowIfPlayerActedOutOfTurn(actingPlayer);
+
+			TakiCard leadingCard = LeadingCard();
+
+			bool KingOrColorOrSymbolCheck() {
+				if (leadingCard.IsFigure(NeutralActionCardFigure.King)) { return true; }
+				if (card.IsFigure(leadingCard)) { return true; }
+
+				ColorCard colorCard = (ColorCard)card;
+				if (_activeTaki == colorCard.Color) { return true; }
+				if (_activeChangeColor == colorCard.Color) { return true; }
+
+				if (_activeChangeColor is not null) { return false; }
+				/*
+				I'm not sure about this check specifically. Is the knowledge that a NON-COLOR-MATCHING taki is active
+				enough to immediately know the card isn't playable? 
+				*/
+				if(_activeTaki is not null) { return false; }
+
+				ColorCard leadingColorCard = (ColorCard)leadingCard;
+				if(colorCard.Color == leadingColorCard.Color) { return true; }
+
+				return false;
+
+			}
+
+			bool PassesFirstCheck() {
+				//If played is a number, normal taki, change direction, stop or plus
+				if (card is NumberCard || card.IsFigure(ColorActionCardFigure.Taki, ColorActionCardFigure.ChangeDirection, ColorActionCardFigure.Stop, ColorActionCardFigure.Plus)) {
+					ColorCard colorCard = (ColorCard)card;
+
+					//If leading is neither a king nor a change color with matching color, and there is no active taki with matching color
+					if (!leadingCard.IsFigure(NeutralActionCardFigure.King) || _activeChangeColor != colorCard.Color || _activeTaki != colorCard.Color) {
+						if (!leadingCard.IsFigure(ColorActionCardFigure.Taki) || !leadingCard.IsFigure(NeutralActionCardFigure.SuperTaki, NeutralActionCardFigure.ChangeColor)) {
+
+						}
+					}
+				}
+			}
+			if (!PassesFirstCheck()) {
+				ThrowInvalidCardPlay()
+			}
 			
-			if(!(card.IsFigure(NeutralActionCardFigure.SuperTaki) || card.IsFigure(NeutralActionCardFigure.ChangeColor) || card.IsFigure(NeutralActionCardFigure.King))
+
+
+			if(!card.IsFigure(NeutralActionCardFigure.SuperTaki, NeutralActionCardFigure.ChangeColor, NeutralActionCardFigure.King) && !card.IsFigure(ColorActionCardFigure.Taki)) {
+				if(((ColorCard)card).Color != _activeTaki) {
+					_activeTaki = null;
+				}
+			}
+
+			if(card.IsFigure(NeutralActionCardFigure.ChangeColor, NeutralActionCardFigure.King)) {
+				_activeTaki = null;
+			}
+
+			if(card.IsFigure())
 		}
 
 

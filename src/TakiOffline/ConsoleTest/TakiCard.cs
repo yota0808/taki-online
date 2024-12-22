@@ -36,11 +36,21 @@ namespace ConsoleTest {
 			public required NeutralActionCardFigure Figure { get; init; }
 		}
 
-		public bool IsFigure(params NumberCardFigure[] figures) {
-			
-		}
+		public bool IsFigure(params NumberCardFigure[] figures) => this is NumberCard card && figures.Contains(card.Figure);
+		public bool IsFigure(params ColorActionCardFigure[] figures) => this is ColorActionCard card && figures.Contains(card.Figure);
+		public bool IsFigure(params NeutralActionCardFigure[] figures) => this is NeutralActionCard card && figures.Contains(card.Figure);
 
-		public bool IsFigure(ColorActionCardFigure figure) => this is ColorActionCard card && card.Figure == figure;
-		public bool IsFigure(NeutralActionCardFigure figure) => this is NeutralActionCard card && card.Figure == figure;
+		public bool IsFigure(TakiCard other) {
+			if(this is NumberCard numberCard && other is NumberCard otherNumberCard && numberCard.Figure == otherNumberCard.Figure) {
+				return true;
+			}
+			if (this is ColorActionCard colorActionCard && other is ColorActionCard otherColorActionCard && colorActionCard.Figure == otherColorActionCard.Figure) {
+				return true;
+			}
+			if (this is NeutralActionCard neutralActionCard && other is NeutralActionCard otherNeutralActionCard && neutralActionCard.Figure == otherNeutralActionCard.Figure) {
+				return true;
+			}
+			return false;
+		}
 	}
 }
