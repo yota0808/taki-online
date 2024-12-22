@@ -15,6 +15,8 @@ namespace ConsoleTest {
 
 		private bool _reverseTurnOrder = false;
 		private bool _nextPlayerIsStopped = false;
+		private bool _kingTurn = false;
+		private bool _takiIsActive = false;
 
 		//In case of super taki or change color.
 		private TakiCard.CardColor? _colorOverride = null;
@@ -106,12 +108,12 @@ namespace ConsoleTest {
 					($"The card isn't playable on the leading card.");
 			}
 			
-			if(card is TakiCard.ColorCard cC) {
-				//Numbers (which aren't plus 2) don't do anything special
-				if (cC.IsNormalNumber()) {
-					return;
-				}
+			if(card is TakiCard.ColorCard) {
+				TakiCard.ColorCard cC = card as TakiCard.ColorCard;
 
+				//Numbers (which aren't plus 2) don't do anything special
+
+				bool _dontEndTurn = false;
 				switch (cC.Figure) {
 					case TakiCard.ColorCardFigure.ChangeDirection:
 						_reverseTurnOrder = !_reverseTurnOrder;
@@ -120,9 +122,14 @@ namespace ConsoleTest {
 						_nextPlayerIsStopped = true;
 						break;
 					case TakiCard.ColorCardFigure.Plus:
+						_dontEndTurn = true;
+						break;
+					case TakiCard.ColorCardFigure.Taki:
 
 				}
 			}
+
+			
 		}
 	}
 }
