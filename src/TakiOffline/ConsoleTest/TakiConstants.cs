@@ -9,9 +9,9 @@ namespace ConsoleTest {
 			//2 of each color of each color card
 
 			CardColor[] cardColors = Enum.GetValues<CardColor>();
-			ColorCardFigure[] colorCardFigures = Enum.GetValues<ColorCardFigure>();
+			ColorActionCardFigure[] colorCardFigures = Enum.GetValues<ColorActionCardFigure>();
 
-			foreach(ColorCardFigure figure in colorCardFigures) {
+			foreach(ColorActionCardFigure figure in colorCardFigures) {
 				foreach(CardColor color in cardColors) {
 					for(int i = 1; i <= 2; i++) {
 						cards.Add(new ColorCard {
@@ -24,17 +24,17 @@ namespace ConsoleTest {
 
 			//2 kings and super takis
 
-			foreach(NeutralCardFigure figure in new NeutralCardFigure[] {NeutralCardFigure.King, NeutralCardFigure.SuperTaki } ) {
+			foreach(NeutralActionCardFigure figure in new NeutralActionCardFigure[] {NeutralActionCardFigure.King, NeutralActionCardFigure.SuperTaki } ) {
 				for(int i = 1; i <= 2; i++) {
-					cards.Add(new NeutralCard { CardFigure = figure });
+					cards.Add(new NeutralActionCard { Figure = figure });
 				}
 			}
 
 			//4 "change color"s
 
 			for (int i = 1; i <= 4; i++) {
-				cards.Add(new NeutralCard {
-					CardFigure = NeutralCardFigure.ChangeColor
+				cards.Add(new NeutralActionCard {
+					Figure = NeutralActionCardFigure.ChangeColor
 				});
 			}
 

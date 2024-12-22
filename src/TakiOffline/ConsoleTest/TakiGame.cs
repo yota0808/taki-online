@@ -1,5 +1,6 @@
 ﻿using static ConsoleTest.TakiException;
 using static ConsoleTest.TakiCard;
+using static ConsoleTest.TakiCard.ColorCard;
 
 namespace ConsoleTest {
 	public class TakiGame {
@@ -20,8 +21,9 @@ namespace ConsoleTest {
 
 		private bool _stopActive = false;
 
-		private bool Plus2Active() => _activePlus2Draws > 0;
-		private int _activePlus2Draws = 0;
+		private bool Plus2Active() => _activePlus2Stacks > 0;
+		private int _activePlus2Stacks = 0;
+		private int _nextPlus2Stacks = 0;
 
 		private CardColor? _activeChangeColor = null;
 
@@ -46,6 +48,17 @@ namespace ConsoleTest {
 
 			_discardPile = [];
 			_discardPile.Add(_drawPile.Draw());
+		}
+		
+		private void CurrentPlayerDraws1() {
+			CurrentPlayer().GiveCard(_drawPile.Draw());
+		}
+
+		private void ThrowIfPlayerActedOutOfTurn(int actingPlayer) {
+			if (actingPlayer != _currentPlayerIndex) {
+				throw new InvalidTakiMoveException
+					($"A player may only act on their turn. Player {actingPlayer} tried to act on player {_currentPlayerIndex}'s turn.");
+			}
 		}
 
 		private void NextPlayer() {
@@ -74,16 +87,26 @@ namespace ConsoleTest {
 			}
 		}
 
-		public void MakeMove(TakiMove move) {
-			
+		public void AcceptPlus2Draws(int actingPlayer) {
+			ThrowIfPlayerActedOutOfTurn(actingPlayer);
 
+			for (int i = 1; i <= _activePlus2Stacks; i++) {
+				for (int k = 1; k <= 2; i++) {
+					CurrentPlayerDraws1();
+				}
+			}
+
+			_activePlus2Stacks = 0;
 		}
 
-		private void Draw() {
-			if (_activePlus2Draws > 0) {
-				_activePlus2Draws--;
+		public void Draw(int actingPlayer) {
+			ThrowIfPlayerActedOutOfTurn(actingPlayer);
+
+			if (Plus2Active()) {
+				throw new InvalidTakiMoveException("A player may not draw (through this method) while they have an active plus 2 on them.");
 			}
-			else CurrentPlayer().GiveCard(_drawPile.Draw());
+
+			CurrentPlayerDraws1();
 
 			if (_drawPile.Cards.Count == 0) {
 				_drawPile = new CardDeck<TakiCard>(_discardPile);
@@ -92,8 +115,10 @@ namespace ConsoleTest {
 			}
 		}
 
-		private void PlaySimpleCard(TakiCard card) {
+		public void PlayCardNoParams(int actingPlayer, TakiCard card) {
+			ThrowIfPlayerActedOutOfTurn(actingPlayer);
 			
+			if(!(card.IsFigure(NeutralActionCardFigure.SuperTaki) || card.IsFigure(NeutralActionCardFigure.ChangeColor) || card.IsFigure(NeutralActionCardFigure.King))
 		}
 
 

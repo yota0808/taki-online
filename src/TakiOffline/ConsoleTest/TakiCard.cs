@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
+using static ConsoleTest.TakiCard.ColorCard;
 
 namespace ConsoleTest {
 	public abstract record TakiCard {
@@ -10,71 +8,39 @@ namespace ConsoleTest {
 			Red, Green, Blue, Yellow
 		}
 
-		public enum ColorCardFigure {
-			//Numbers
-			N1, N2, N3, N4, N5, N6, N7, N8, N9,
-			//Color action cards
-			ChangeDirection, Stop, Plus, Taki, Plus2,			
+		public enum ColorActionCardFigure {
+			ChangeDirection, Stop, Plus, Taki, Plus2	
 		}
 
-		public enum NeutralCardFigure {
+		public enum NumberCardFigure {
+			N1, N2, N3, N4, N5, N6, N7, N8, N9
+		}
+
+		public enum NeutralActionCardFigure {
 			King, SuperTaki, ChangeColor
 		}
 
-		public record ColorCard : TakiCard {
+		public abstract record ColorCard : TakiCard {
 			public required CardColor Color { get; init; }
-			public required ColorCardFigure Figure { get; init; }
 
-			public bool IsNormalNumber() {
-				ColorCardFigure[] numberFigures =
-					{ColorCardFigure.N1, ColorCardFigure.N2, ColorCardFigure.N3, ColorCardFigure.N4, ColorCardFigure.N5, ColorCardFigure.N6, ColorCardFigure.N7,
-					ColorCardFigure.N8, ColorCardFigure.N9};
-				return numberFigures.Contains(Figure);
+			public record NumberCard : ColorCard {
+				public required NumberCardFigure Figure { get; init; }
+			}
+
+			public record ColorActionCard : ColorCard {
+				public required ColorActionCardFigure Figure { get; init; }
 			}
 		}
 
-		public record NeutralCard : TakiCard {
-			public required NeutralCardFigure CardFigure { get; init; }
+		public record NeutralActionCard : TakiCard {
+			public required NeutralActionCardFigure Figure { get; init; }
 		}
 
-		public bool IsValidPlayOn(TakiCard other) {
-			//Kings are always playable and can always be played on
-			//Change color is always playable (EXCEPT if you have extra draws, which is covered in TakiGame)
-
-			if(this is NeutralCard nC) {
-				if(nC.CardFigure == NeutralCardFigure.King || nC.CardFigure == NeutralCardFigure.ChangeColor) {
-					return true;
-				}
-			}
+		public bool IsFigure(params NumberCardFigure[] figures) {
 			
-			if (other is NeutralCard otherNC && otherNC.CardFigure == NeutralCardFigure.King) {
-				return true;
-			}
-
-
-			//If there are colors to match...
-
-			if (this is ColorCard thisCC && other is ColorCard otherCC) {
-				if(thisCC.Color == otherCC.Color) {
-					return true;
-				}
-
-				//If figures match... (color card)
-				if(thisCC.Figure == otherCC.Figure) {
-					return true;
-				}
-			}
-
-			//If there are figures to match... (neutral card)
-			nC = this as NeutralCard;
-			otherNC = other as NeutralCard;
-			if (nC.CardFigure == otherNC.CardFigure) {
-				return true;
-			}
-
-			//If nothing matches...
-
-			return false;
 		}
+
+		public bool IsFigure(ColorActionCardFigure figure) => this is ColorActionCard card && card.Figure == figure;
+		public bool IsFigure(NeutralActionCardFigure figure) => this is NeutralActionCard card && card.Figure == figure;
 	}
 }

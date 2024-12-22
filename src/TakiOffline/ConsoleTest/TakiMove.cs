@@ -11,7 +11,7 @@
 				private TakiCard _card;
 				public required TakiCard Card {
 					init {
-						if(value is TakiCard.NeutralCard nAC && nAC.CardFigure == TakiCard.NeutralCard.NeutralCardFigure.ChangeColor) {
+						if(value is TakiCard.NeutralActionCard nAC && nAC.Figure == TakiCard.NeutralActionCard.NeutralActionCardFigure.ChangeColor) {
 							throw new ArgumentException("The 'Change color' card must have the selected color as an argument.");
 						}
 						else {
@@ -25,7 +25,7 @@
 
 			public record PlayChangeColor : PlayCard {
 				public override TakiCard GetCard() {
-					return new TakiCard.NeutralCard() { CardFigure = TakiCard.NeutralCard.NeutralCardFigure.ChangeColor };
+					return new TakiCard.NeutralActionCard() { Figure = TakiCard.NeutralActionCard.NeutralActionCardFigure.ChangeColor };
 				}
 
 				public required TakiCard.CardColor SelectedColor { get; init; }
