@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleTest {
-	public class TakiPlayer {
+	public record TakiPlayer {
 		public readonly List<TakiCard> Hand;
 		public required int PlayerIndex { get; init; }
 		public bool HasWon { get; private set; }

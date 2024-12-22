@@ -1,33 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static ConsoleTest.TakiException;
+﻿using static ConsoleTest.TakiException;
+using static ConsoleTest.TakiCard;
 
 namespace ConsoleTest {
 	public class TakiGame {
-		private int _extraDraws = 0;
-
-		public enum DirectionOfPlayType {
-			Normal, Reverse
-		}
-
-		private bool _reverseTurnOrder = false;
-		private bool _nextPlayerIsStopped = false;
-		private bool _kingTurn = false;
-		private bool _takiIsActive = false;
-
-		//In case of super taki or change color.
-		private TakiCard.CardColor? _colorOverride = null;
-
+		//Draw & discard piles
 		private CardDeck<TakiCard> _drawPile;
+
+		private TakiCard LeadingCard() => _discardPile.Last();
 		private List<TakiCard> _discardPile;
 
-		private TakiCard _leadingCard => _discardPile.Last();
-		private TakiPlayer _currentPlayer => _players[_currentPlayerIndex];
-
+		//Players
+		private TakiPlayer CurrentPlayer() => _players[_currentPlayerIndex];
 		private TakiPlayer[] _players;
+
+		//Card effect flags
+		private CardColor? _activeTaki = null;
+
+		private bool _turnOrderReversed = false;
+
+		private bool _stopActive = false;
+
+		private bool Plus2Active() => _activePlus2Draws > 0;
+		private int _activePlus2Draws = 0;
+
+		private CardColor? _activeChangeColor = null;
+
+		private bool _kingTurn = false;
+
+		//Misc flags
 		private int _currentPlayerIndex = 0;
 
 		public TakiGame(int playerCount) {
@@ -36,7 +36,7 @@ namespace ConsoleTest {
 
 			_players = new TakiPlayer[playerCount];
 			for(int i = 0; i < playerCount; i++) {
-				TakiPlayer player = new TakiPlayer() { PlayerIndex = i };
+				TakiPlayer player = new() { PlayerIndex = i };
 				_players[i] = player;
 
 				for (int k = 1; k <= 8; k++) {
@@ -51,7 +51,7 @@ namespace ConsoleTest {
 		private void NextPlayer() {
 			int i = _currentPlayerIndex;
 
-			if (_reverseTurnOrder) {
+			if (_turnOrderReversed) {
 				do {
 					if (i == 0) { i = _players.Length - 1; }
 					else i--;
@@ -68,33 +68,23 @@ namespace ConsoleTest {
 
 			_currentPlayerIndex = i;
 
-			if (_nextPlayerIsStopped) {
-				_nextPlayerIsStopped = false;
+			if (_stopActive) {
+				_stopActive = false;
 				NextPlayer();
 			}
 		}
 
 		public void MakeMove(TakiMove move) {
-			if(move.PlayerIndex != _currentPlayerIndex) {
-				throw new InvalidTakiMoveException
-					($"A player may only act on their turn. Player {move.PlayerIndex} tried to act on player {_currentPlayerIndex}'s turn.");
-			}
+			
 
-			switch (move) {
-				case TakiMove.DrawCard:
-					Draw();
-					break;
-				case TakiMove.PlayCard.PlayCardNoParamaters pSC:
-					PlaySimpleCard(pSC.GetCard());
-					break;
-			}
 		}
 
 		private void Draw() {
-			if (_extraDraws > 0) {
-				_extraDraws--;
+			if (_activePlus2Draws > 0) {
+				_activePlus2Draws--;
 			}
-			else _currentPlayer.GiveCard(_drawPile.Draw());
+			else CurrentPlayer().GiveCard(_drawPile.Draw());
+
 			if (_drawPile.Cards.Count == 0) {
 				_drawPile = new CardDeck<TakiCard>(_discardPile);
 				_discardPile.Clear();
@@ -103,33 +93,16 @@ namespace ConsoleTest {
 		}
 
 		private void PlaySimpleCard(TakiCard card) {
-			if (!card.IsValidPlayOn(_leadingCard)) {
-				throw new InvalidTakiMoveException
-					($"The card isn't playable on the leading card.");
-			}
-			
-			if(card is TakiCard.ColorCard) {
-				TakiCard.ColorCard cC = card as TakiCard.ColorCard;
-
-				//Numbers (which aren't plus 2) don't do anything special
-
-				bool _dontEndTurn = false;
-				switch (cC.Figure) {
-					case TakiCard.ColorCardFigure.ChangeDirection:
-						_reverseTurnOrder = !_reverseTurnOrder;
-						break;
-					case TakiCard.ColorCardFigure.Stop:
-						_nextPlayerIsStopped = true;
-						break;
-					case TakiCard.ColorCardFigure.Plus:
-						_dontEndTurn = true;
-						break;
-					case TakiCard.ColorCardFigure.Taki:
-
-				}
-			}
-
 			
 		}
+
+
+
+		/*
+		 * if (move.PlayerIndex != _currentPlayerIndex) {
+				throw new InvalidTakiMoveException
+					($"A player may only act on their turn. Player {move.PlayerIndex} tried to act on player {_currentPlayerIndex}'s turn.");
+			}
+		*/
 	}
 }
