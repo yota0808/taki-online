@@ -27,5 +27,7 @@ namespace ConsoleTest {
 		public void TakeCard(TakiCard card) {
 			Hand.Remove(card);
 		}
+
+		public bool HasCard(TakiCard card) => Hand.Contains(card);
 	}
 }

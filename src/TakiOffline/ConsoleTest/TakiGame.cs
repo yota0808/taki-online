@@ -131,11 +131,15 @@ namespace ConsoleTest {
 		"Can I end with a + card as a last card?"
 
 		! "Can I play a Change Color at the end of a TAKI run?" (Force color to be that of the taki)
-		"If I play the King card and play a Super-TAKI on top of it, can I choose the color of the TAKI?"
+		! "If I play the King card and play a Super-TAKI on top of it, can I choose the color of the TAKI?" (Have the player choose the color like with change color)
 		*/
 
 		public void PlayCard(int actingPlayer, TakiCard card) {
 			ThrowIfPlayerActedOutOfTurn(actingPlayer);
+
+			if (!CurrentPlayer().HasCard(card)) {
+				throw new InvalidTakiMoveException($"The current player can't play a [PLACEHOLDER] because they don't have one.");
+			}
 
 			TakiCard leadingCard = LeadingCard();
 
@@ -183,22 +187,27 @@ namespace ConsoleTest {
 			}
 			//And a super taki is neutral, so it doesn't care about colors or symbols.
 			//But it also isn't a plus 2, so it can't be played on an active one.
+			//However, if one is played on a king, the player must *choose* the color of the taki instead of it being determined by the lead.
+			//In that case, this method is inadequate. There is no "chosen color" paramater. So this throws.
 			else if (card.IsFigure(NeuAc_F.SuperTaki)) {
 				if (Plus2IsActive()) { ThrowInvalidCardPlay(); }
+				if (leadingCard.IsFigure(NeuAc_F.King)) {
+					throw new ArgumentException
+						("A super taki *can* be played here (on a king), but no 'chosen color' paramater was provided. Use PlayCardWithColorChoice.");
+				}
 			}
-			//A "change color" has an identical play condition in terms of *rules*, but this *method* has no "chosen color" paramater.
+			//A "change color" has an identical play condition in terms of rules, but there's another paramater problem like with the super taki.
 			//You can only play a "change color" here becuase I want to support the rule of
 			//it *automatically* (without player choice) changing its color to that of the active taki, if one exists.
-			//But if there *isn't* an active taki, we need the chosen color paramater. So this throws.
+			//But if there *isn't* an active taki, we once again need the chosen color paramater. So this throws.
 			else if (card.IsFigure(NeuAc_F.ChangeColor)) {
 				if (Plus2IsActive()) { ThrowInvalidCardPlay(); }
 				if(_activeTaki is null) {
-					throw new InvalidTakiMoveException
-						("A 'change color' *can* be played here (outside of an active taki run), but no 'chosen color' paramater was provided. Use PlayCardWithColorChoice.");
+					throw new ArgumentException
+						("A 'change color' *can* be played here (outside a taki run), but no 'chosen color' paramater was provided. Use PlayCardWithColorChoice.");
 				}
 			}
-
-			//If all of the above "if"s don't trigger, the card must be a king, and a king is always playable
+			//If all of the above "if"s didn't trigger, the card must be a king, and a king is always playable
 
 			//GAME EFFECTS
 
@@ -212,7 +221,13 @@ namespace ConsoleTest {
 				_activeTaki = null;
 			}
 
-			if(card.IsFigure())
+			if (card.IsFigure(ColAc_F.Taki)) {
+				_activeTaki = ((ColorCard)card).Color;
+			}
+
+			if (card.IsFigure(NeuAc_F.SuperTaki)) {
+				_activeTaki = _activeChangeColor is not null ? 
+			}
 		}
 
 
