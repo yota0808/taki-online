@@ -1,7 +1,11 @@
 ﻿using static ConsoleTest.TakiException;
 using static ConsoleTest.TakiCard;
 using static ConsoleTest.TakiCard.ColorCard;
-using System.Security.Cryptography.X509Certificates;
+
+using Color = ConsoleTest.TakiCard.CardColor;
+using ColAc_F = ConsoleTest.TakiCard.ColorActionCardFigure;
+using NeuAc_F = ConsoleTest.TakiCard.NeutralActionCardFigure;
+using Num_F = ConsoleTest.TakiCard.NumberCardFigure;
 
 namespace ConsoleTest {
 	public class TakiGame {
@@ -16,17 +20,17 @@ namespace ConsoleTest {
 		private TakiPlayer[] _players;
 
 		//Card effect flags
-		private CardColor? _activeTaki = null;
+		private Color? _activeTaki = null;
 
 		private bool _turnOrderReversed = false;
 
 		private bool _stopActive = false;
 
-		private bool Plus2Active() => _activePlus2Stacks > 0;
+		private bool Plus2IsActive() => _activePlus2Stacks > 0;
 		private int _activePlus2Stacks = 0;
 		private int _nextPlus2Stacks = 0;
 
-		private CardColor? _activeChangeColor = null;
+		private Color? _activeChangeColor = null;
 
 		private bool _kingTurn = false;
 
@@ -107,7 +111,7 @@ namespace ConsoleTest {
 		public void Draw(int actingPlayer) {
 			ThrowIfPlayerActedOutOfTurn(actingPlayer);
 
-			if (Plus2Active()) {
+			if (Plus2IsActive()) {
 				throw new InvalidTakiMoveException("A player may not draw (through this method) while they have an active plus 2 on them.");
 			}
 
@@ -120,59 +124,91 @@ namespace ConsoleTest {
 			}
 		}
 
-		public void PlayCardNoParams(int actingPlayer, TakiCard card) {
+		/*
+		Taki rule FAQs I want to implement, by their titles in the website
+		(These are complicated and annoying, so I'm saving them for after I've got the basic rules down)
+		"Do I win if I play +2 as a last card?"
+		"Can I end with a + card as a last card?"
+
+		! "Can I play a Change Color at the end of a TAKI run?" (Force color to be that of the taki)
+		"If I play the King card and play a Super-TAKI on top of it, can I choose the color of the TAKI?"
+		*/
+
+		public void PlayCard(int actingPlayer, TakiCard card) {
 			ThrowIfPlayerActedOutOfTurn(actingPlayer);
 
 			TakiCard leadingCard = LeadingCard();
 
+			//PLAY CONDITIONS
+
+			//(I could have foregone the active taki check, since the color of the lead must be
+			//the color of the active taki if one exists. But this is much more readable.)
 			bool KingOrColorOrSymbolCheck() {
-				if (leadingCard.IsFigure(NeutralActionCardFigure.King)) { return true; }
+				//Kings can always be played on
+				if (leadingCard.IsFigure(NeuAc_F.King)) { return true; }
+
+				//Check if figures match
 				if (card.IsFigure(leadingCard)) { return true; }
 
 				ColorCard colorCard = (ColorCard)card;
+				//Check if there's a matching taki active
 				if (_activeTaki == colorCard.Color) { return true; }
+				//Check if a matching change color is on top
 				if (_activeChangeColor == colorCard.Color) { return true; }
 
+				//Either of the next two failing means there's no color match. this plus no symbol match means not playable
+
+				//If there's *a* "change color" on top, given the previous "change color" check, it *must* be non-matching
 				if (_activeChangeColor is not null) { return false; }
-				/*
-				I'm not sure about this check specifically. Is the knowledge that a NON-COLOR-MATCHING taki is active
-				enough to immediately know the card isn't playable? 
-				*/
+				//If there's *a* taki active, given the previous taki check, the card on top must be of a non matching color
+				//(Either part of the taki or the taki card itself)
 				if(_activeTaki is not null) { return false; }
 
+				//If lead is neither a king (checked directly), nor change color (otherwise we would have returned already),
+				//nor super taki (same thing), then by elimination it *must* be a ColorCard. So it's safe to cast and check.
 				ColorCard leadingColorCard = (ColorCard)leadingCard;
 				if(colorCard.Color == leadingColorCard.Color) { return true; }
 
 				return false;
-
 			}
 
-			bool PassesFirstCheck() {
-				//If played is a number, normal taki, change direction, stop or plus
-				if (card is NumberCard || card.IsFigure(ColorActionCardFigure.Taki, ColorActionCardFigure.ChangeDirection, ColorActionCardFigure.Stop, ColorActionCardFigure.Plus)) {
-					ColorCard colorCard = (ColorCard)card;
-
-					//If leading is neither a king nor a change color with matching color, and there is no active taki with matching color
-					if (!leadingCard.IsFigure(NeutralActionCardFigure.King) || _activeChangeColor != colorCard.Color || _activeTaki != colorCard.Color) {
-						if (!leadingCard.IsFigure(ColorActionCardFigure.Taki) || !leadingCard.IsFigure(NeutralActionCardFigure.SuperTaki, NeutralActionCardFigure.ChangeColor)) {
-
-						}
-					}
+			//These need a king as lead, a matching color or symbol, or an active taki with matching color.
+			//Also, you can't play them when a plus 2 is on you.
+			if (card is NumberCard || card.IsFigure(ColAc_F.Taki, ColAc_F.ChangeDirection, ColAc_F.Stop, ColAc_F.Plus)) {
+				if (!KingOrColorOrSymbolCheck() || Plus2IsActive()) { ThrowInvalidCardPlay(); }
+			}
+			//A plus 2 is identical, except that it *can* be played on another plus 2.
+			else if (card.IsFigure(ColAc_F.Plus2)) {
+				if (!KingOrColorOrSymbolCheck()) { ThrowInvalidCardPlay(); }
+			}
+			//And a super taki is neutral, so it doesn't care about colors or symbols.
+			//But it also isn't a plus 2, so it can't be played on an active one.
+			else if (card.IsFigure(NeuAc_F.SuperTaki)) {
+				if (Plus2IsActive()) { ThrowInvalidCardPlay(); }
+			}
+			//A "change color" has an identical play condition in terms of *rules*, but this *method* has no "chosen color" paramater.
+			//You can only play a "change color" here becuase I want to support the rule of
+			//it *automatically* (without player choice) changing its color to that of the active taki, if one exists.
+			//But if there *isn't* an active taki, we need the chosen color paramater. So this throws.
+			else if (card.IsFigure(NeuAc_F.ChangeColor)) {
+				if (Plus2IsActive()) { ThrowInvalidCardPlay(); }
+				if(_activeTaki is null) {
+					throw new InvalidTakiMoveException
+						("A 'change color' *can* be played here (outside of an active taki run), but no 'chosen color' paramater was provided. Use PlayCardWithColorChoice.");
 				}
 			}
-			if (!PassesFirstCheck()) {
-				ThrowInvalidCardPlay()
-			}
-			
 
+			//If all of the above "if"s don't trigger, the card must be a king, and a king is always playable
 
-			if(!card.IsFigure(NeutralActionCardFigure.SuperTaki, NeutralActionCardFigure.ChangeColor, NeutralActionCardFigure.King) && !card.IsFigure(ColorActionCardFigure.Taki)) {
+			//GAME EFFECTS
+
+			if(!card.IsFigure(NeuAc_F.SuperTaki, NeuAc_F.ChangeColor, NeuAc_F.King) && !card.IsFigure(ColAc_F.Taki)) {
 				if(((ColorCard)card).Color != _activeTaki) {
 					_activeTaki = null;
 				}
 			}
 
-			if(card.IsFigure(NeutralActionCardFigure.ChangeColor, NeutralActionCardFigure.King)) {
+			if(card.IsFigure(NeuAc_F.ChangeColor, NeuAc_F.King)) {
 				_activeTaki = null;
 			}
 
